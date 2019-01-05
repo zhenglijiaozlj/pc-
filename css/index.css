@@ -45,6 +45,9 @@ img{display: block;}
     position: relative;
     cursor: pointer;
 }
+.nav li:nth-child(1){
+    width: 21px;
+}
 .nav li:hover .up{
     width: 100%;
 }
