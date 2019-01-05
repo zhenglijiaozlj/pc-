@@ -7,13 +7,15 @@ img{display: block;}
 /*清除浮动*/
 .clearfix{*zoom: 1;}
 .clearfix:after{content: "";display: block;clear: both;}
-.font-title{
+/*公共样式*/
+.common-title{
     color:#009ee0;
     font-size:80px;
     line-height:0.8;
     font-weight:bold;
     letter-spacing:-5px;
 }
+.commonText{ color:white; line-height:1.5; font-size:15px;}
 /*包裹器*/
 .wrap{
     height: 100%;
@@ -207,3 +209,64 @@ img{display: block;}
     visibility: hidden;
     animation: rightHide 2s linear;
 }
+/*第二屏*/
+.cours{
+    position: relative;
+}
+.cours-title{
+    margin: 50px;
+}
+.cours-content{
+    width: 400px;
+    margin-left:50px ;
+}
+.cours-list{
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    width: 480px;
+}
+.cours-list li{
+    position: relative;
+    float:left;
+    width: 120px;
+    height: 132px;
+}
+.cours-list li:hover .front{
+    transform: rotateY(180deg);
+}
+.cours-list li:hover .back{
+    transform: rotateY(360deg);
+}
+.cours-list p{
+    transition:transform 1s;
+}
+.cours-list .front{
+    height: 100%;
+    background: url("../img/pcwelt.png") no-repeat center;
+}
+.cours-list .back{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #009ee0;
+    padding: 15px;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+.cours-line li{
+    position: absolute;
+    right: 0;
+    top: 64px;
+    width:9px;
+    height: 410px;
+    background: url("../img/plus_row.png") no-repeat;
+}
+.cours-line li:nth-child(1){right: 45px;}
+.cours-line li:nth-child(2){right: 165px;}
+.cours-line li:nth-child(3){right: 285px;}
+.cours-line li:nth-child(4){right: 407px;}
+.cours-line li:nth-child(5){right: 527px;}
