@@ -12,6 +12,7 @@ window.onload = function(){
     var contentHeight = content.offsetHeight;
     var left = lisNodes[0].getBoundingClientRect().left+lisNodes[0].
             offsetWidth/2-arrow.offsetWidth/2+'px';
+    //定义小箭头初始位置
     arrow.style.left = left;
     liUp[0].style.width = 100+'%';
     for(var i = 0;i<lisNodes.length;i++){
@@ -31,46 +32,75 @@ window.onload = function(){
                 offsetWidth/2-arrow.offsetWidth/2+'px';
         contentMain.style.top = -contentHeight*nowIndex+'px';
     }
+    var timer = '';
     document.onmousewheel = wheel;
     document.addEventListener('DOMMouseScroll', wheel);
+
     function wheel(event) {
         event = event || window.event;
-        var flag = '';
-        if (event.wheelDelta) {
-            //ie/chrome
-            if (event.wheelDelta > 0) {
-                flag = 'up';
-            } else {
-                flag = 'down';
-            }
-        } else if (event.detail) {
-            //firefox
-            if (event.detail < 0) {
-                flag = 'up';
-            } else {
-                flag = 'down';
-            }
-        }
-        switch (flag) {
-            case 'up' :
-                if(nowIndex<0){
-                }else{
-                    nowIndex--;
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+            var flag = '';
+            if (event.wheelDelta) {
+                //ie/chrome
+                if (event.wheelDelta > 0) {
+                    flag = 'up';
+                } else {
+                    flag = 'down';
                 }
-                move(nowIndex);
-                break;
-            case 'down' :
-                if(nowIndex>lisNodes.length-1){
-                }else{
-                    nowIndex++;
+            } else if (event.detail) {
+                //firefox
+                if (event.detail < 0) {
+                    flag = 'up';
+                } else {
+                    flag = 'down';
                 }
-                console.log(nowIndex);
-                move(nowIndex);
-                break;
-        }
+            }
+            switch (flag) {
+                case 'up' :
+                    if(nowIndex<=0){
+                    }else{
+                        nowIndex--;
+                    }
+                    move(nowIndex);
+                    break;
+                case 'down' :
+                    if(nowIndex>=lisNodes.length-1){
+                    }else{
+                        nowIndex++;
+                    }
+                    console.log(nowIndex);
+                    move(nowIndex);
+                    break;
+            }
 
-        //禁止默认行为
-        event.preventDefault && event.preventDefault();
-        return false;
+            //禁止默认行为
+            event.preventDefault && event.preventDefault();
+            return false;
+        },300)
+    }
+    //第一屏轮播
+    banner();
+    function banner(){
+        var pointLisNodes = document.querySelectorAll('.home-point li');
+        var carouselLisNodes = document.querySelectorAll('.home-carousel li');
+        var nowIndex = 0;
+        var lastIndex = 0;
+        for (var i = 0; i < pointLisNodes.length; i++) {
+            pointLisNodes[i].index = i;
+            pointLisNodes[i].onclick = function () {
+                nowIndex = this.index;
+                if(nowIndex>lastIndex){
+                    carouselLisNodes[lastIndex].className='font-title leftHide';
+                    carouselLisNodes[nowIndex].className = 'font-title rightShow';
+                }else if(nowIndex<lastIndex){
+                    carouselLisNodes[lastIndex].className='font-title rightHide';
+                    carouselLisNodes[nowIndex].className = 'font-title leftShow';
+                }
+                pointLisNodes[lastIndex].className = '';
+                this.className = 'active';
+                lastIndex = nowIndex ;
+            }
+        }
     }
 }
