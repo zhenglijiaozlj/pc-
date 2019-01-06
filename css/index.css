@@ -15,6 +15,13 @@ img{display: block;}
     font-weight:bold;
     letter-spacing:-5px;
 }
+.font-title{
+    color:#009ee0;
+    font-size:80px;
+    line-height:0.8;
+    font-weight:bold;
+    letter-spacing:-5px;
+}
 .commonText{ color:white; line-height:1.5; font-size:15px;}
 /*包裹器*/
 .wrap{
@@ -340,4 +347,92 @@ img{display: block;}
     49%{transform: translateX(-420PX)}
     50%{transform: translateX(-420PX) rotateY(180deg)}
     100%{transform:rotateY(180deg)}
+}
+/*第四屏*/
+.about-title{
+    margin:50px 0 100px 50px ;
+}
+.about-content{
+    width: 400px;
+    margin-left: 50px ;
+}
+.about-line{
+    position: absolute;
+    left: 555px;
+    top: -12px;
+    width: 357px;
+    height: 998px;
+    background: url("../img/greenLine.png") no-repeat;
+}
+.about-img{
+    position: absolute;
+    left: 0px;
+    top: 0px ;
+    width: 260px;
+    height: 200px;
+    border: 5px solid rgba(255,255,255,0.5);
+    border-radius: 8px;
+}
+.about-imgOne{
+    left: 750px;
+    top: 50px;
+}
+.about-imgTow{
+    left: 600px;
+    top: 290px;
+}
+.about-list{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+.about-list li{
+    float: left;
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+}
+.about-list:hover .about-move1{
+    transform: translateY(100px);
+}
+.about-list:hover .about-move2{
+    transform: translateX(-130px);
+}
+.about-list:hover .about-move3{
+    transform: translateX(130px);
+}
+.about-list:hover .about-move4{
+    transform: translateY(-100px);
+}
+.about-list li div{
+    width: 100%;
+    height: 100%;
+    background: url("../img/about1.jpg") no-repeat 0 0;
+    transition: transform 1s;
+}
+.about-list li .div2{
+    background-image: url("../img/about3.jpg");
+}
+
+.about-list li .about-move2{
+    background-position: -130px 0;
+}
+.about-list li .about-move3{
+    background-position: 0 -100px;
+}
+.about-list li .about-move4{
+    background-position: -130px -100px;
+}
+/*第五屏*/
+.team-title{
+    float: left;
+    margin: 50px;
+    width: 400px;
+}
+.team-content{
+    float: right;
+    margin: 50px;
+    width: 400px;
 }

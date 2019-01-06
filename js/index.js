@@ -42,8 +42,8 @@
                     offsetWidth/2-arrow.offsetWidth/2+'px';
             contentMain.style.top = -contentHeight*nowIndex+'px';
         }
-        move(2)
-        var timer = '';
+        // move(3)
+        var timer = null;
         document.onmousewheel = wheel;
         document.addEventListener('DOMMouseScroll', wheel);
 
