@@ -42,7 +42,7 @@
                     offsetWidth/2-arrow.offsetWidth/2+'px';
             contentMain.style.top = -contentHeight*nowIndex+'px';
         }
-        move(1)
+        move(2)
         var timer = '';
         document.onmousewheel = wheel;
         document.addEventListener('DOMMouseScroll', wheel);
